@@ -85,7 +85,7 @@ function AdmissionForm() {
     admissionId: "",
     fullName: "",
     gender: "",
-    dob: doj,
+    dob: dob,
     doj: doj,
     religion: "",
     cast: "",
@@ -105,8 +105,8 @@ function AdmissionForm() {
   const savedValues = {
     admissionId: "",
     fullName: "",
-    dob: dob,
-    doj: doj,
+    dob: "",
+    doj: "",
     gender: "",
     religion: "",
     cast: "",
@@ -149,7 +149,7 @@ function AdmissionForm() {
 
           <Formik
             initialValues={initialValues}
-            savedValues={savedValues}
+            
             onSubmit={onSubmit}
             validationSchema={userValidation}
           >
@@ -200,15 +200,14 @@ function AdmissionForm() {
                 </div>
 
                 <div className="col-xl-3 col-lg-6 col-12 form-group">
-                  <label htmlFor="dob">Date Of Birth</label>
-
-                  <DatePicker
-                    className="form-control air-datepicker"
-                    selected={dob}
-                    onChange={(date) => setDobDate(date)}
-                    placeholder="DD/MM/YYYY"
-                    dateFormat="dd-MM -yyyy"
-                  />
+                <label>Date Of Birth</label>
+                <DatePicker
+                  className="form-control air-datepicker"
+                  selected={dob}
+                  onChange={(date) => setDobDate(date)}
+                  placeholder="DD/MM/YYYY"
+                  dateFormat="dd-MM-yyyy"        
+                />
 
                   <ErrorMessage name="dob" component={TextError} />
                 </div>
@@ -220,7 +219,7 @@ function AdmissionForm() {
                     selected={doj}
                     onChange={(date) => setDojDate(date)}
                     placeholder="DD/MM/YYYY"
-                    dateFormat="dd-MM -yyyy"
+                    dateFormat="dd-MM-yyyy"
                     disabled
                   />
                 </div>

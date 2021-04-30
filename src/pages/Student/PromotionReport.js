@@ -1,25 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import "./PromotionReport.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import DatePicker from "react-datepicker";
 
 import TextError from "../../TextError";
 import "react-datepicker/dist/react-datepicker.css";
 
 function PromotionReport() {
-
-
-  const formValues = [
-    {studentId: "B101",
+  const formValues = {
+    studentId: "101",
     name: "Mohammed",
-    class: 5},
-    {studentId: "B102",
-    name: "Mohammed",
-    class: 5}
-  ];
+    CurClass: "5",
+  };
 
-  
   const optionClass = [
     { key: "Select Class", value: "" },
     { key: "1", value: "1" },
@@ -72,6 +65,7 @@ function PromotionReport() {
           <Formik
             initialValues={initialValues}
             validationSchema={userValidation}
+            savedValues={savedValues}
           >
             <Form className="new-added-form-1">
               <div className="row">
@@ -182,6 +176,7 @@ function PromotionReport() {
                     </th>
                   </tr>
                 </thead>
+
                 <tbody>
                   <tr role="row" className="odd">
                     <td className="sorting_1">
@@ -193,7 +188,7 @@ function PromotionReport() {
                       </div>
                     </td>
                     <td>{formValues.name}</td>
-                    <td>{formValues.class}</td>
+                    <td>{formValues.CurClass}</td>
                   </tr>
                 </tbody>
               </table>
