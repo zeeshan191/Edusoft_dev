@@ -2,6 +2,19 @@ import React from "react";
 import "../Student/AdmissionReport.css";
 
 function TadmissionReport() {
+
+  const formValues = {
+    teacherId: "B101",
+    photo: "#",
+    name: "Mohammed",
+    gender: "Male",
+    dob: "29-04-2001",
+    phoneNo: "8150899321",
+    address: "NAGAR",
+    doj: "19-02-2020",
+    YOE: "5",
+    preUni: "JNNCE ENGINEERING COLLEGE",
+  };
   return (
     <>
       <div className="card height-auto">
@@ -154,56 +167,18 @@ function TadmissionReport() {
                 </thead>
                 <tbody className="text-center">
                   <tr role="row" className="odd ">
-                    <td>001</td>
+                    <td>{formValues.teacherId}</td>
                     <td className="text-center"><img src="Founder1.jpg" alt=""/></td>
-                    <td>syed tousif</td>
-                    <td>Male</td>
-                    <td>20/05/2018</td>
-                    <td>+919739993992</td>
+                    <td>{formValues.name}</td>
+                    <td>{formValues.gender}</td>
+                    <td>{formValues.dob}</td>
+                    <td>+{formValues.phoneNo}</td>
                 
-                    <td>Change of Job</td>
-                    <td>20/05/2021</td> 
-                    <td> 10 Years</td>
-                    <td> Prior to teaching, I worked for the Missouri House of Representatives as a research </td> </tr>
-
-                  <tr role="row" className="odd ">
-                    <td>001</td>
-                    <td className="text-center"><img src="Founder1.jpg" alt=""/></td>
-                    <td>syed tousif</td>
-                    <td>Male</td>
-                    <td>20/05/2018</td>
-                    <td>+919739993992</td>
-                   
-                    <td>Change of Job</td>
-                    <td>20/05/2021</td>
-                    <td> 10 Years</td>
-                    <td> Prior to teaching, I worked for the Missouri House of Representatives as a research </td>
-                  </tr>
-
-                  <tr role="row" className="odd ">
-                    <td>001</td>
-                    <td className="text-center"><img src="Founder1.jpg" alt=""/></td>
-                    <td>syed tousif</td>
-                    <td>Male</td>
-                    <td>20/05/2018</td>
-                    <td>+919739993992</td>
-                   <td>Change of Job</td>
-                   <td>20/05/2021</td> 
-                   <td> 10 Years</td>
-                   <td> Prior to teaching, I worked for the Missouri House of Representatives as a research </td>  </tr>
-
-                  <tr role="row" className="odd ">
-                    <td>001</td>
-                    <td className="text-center"><img src="Founder1.jpg" alt=""/></td>
-                    <td>syed tousif</td>
-                    <td>Male</td>
-                    <td>20/05/2018</td>
-                    <td>+919739993992</td>
-                    <td>Change of Job</td>
-                    <td>20/05/2021</td>
-                    <td> 10 Years</td>
-                    <td> Prior to teaching, I worked for the Missouri House of Representatives as a research </td>
-                  </tr>
+                    <td>{formValues.address}</td>
+                    <td>{formValues.doj}</td> 
+                    <td> {formValues.YOE}</td>
+                    <td> {formValues.preUni}</td> 
+                    </tr>
                 </tbody>
               </table>
             </div>
