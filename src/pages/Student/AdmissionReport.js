@@ -1,19 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./AdmissionReport.css";
+import Axios from "axios";
+
 function AdmissionReport() {
-  const formValues = {
-    admissionId: "B101",
-    photo: "#",
-    name: "Mohammed",
-    gender: "Male",
-    class: "5",
-    section: "B",
-    parents: "Ahmed",
-    address: "NAGAR",
-    dob: "29-04-2001",
-    phoneNo: "8150899321",
-    doj: "19-02-2020",
-  };
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    alert("on call");
+    // Update the document title using the browser API
+    Axios.post("http://localhost:3004/getStudentDetails", {
+      student_id: "",
+    }).then((res) => {
+      setData(res.data);
+      //   setDupData(res.data);
+      console.log("Success in effect", data);
+      console.log("result set in effect: ", res.data);
+    });
+  }, []);
+
   return (
     <>
       <div className="card height-auto">
@@ -41,7 +45,7 @@ function AdmissionReport() {
               </div>
               <div className="col-lg-2 col-12 form-group">
                 <button
-                  type="search"
+                  type="submit"
                   className="fw-btn-fill btn-gradient-yellow"
                   style={{ width: "100px" }}
                 >
@@ -64,10 +68,10 @@ function AdmissionReport() {
                   <tr role="row">
                     <th
                       className="sorting"
-                      tabIndex="0"
+                      tabindex="0"
                       aria-controls="DataTables_Table_0"
-                      rowSpan="1"
-                      colSpan="1"
+                      rowspan="1"
+                      colspan="1"
                       aria-label="Admission iD: activate to sort column ascending"
                       style={{ width: "42.6667px" }}
                     >
@@ -75,10 +79,10 @@ function AdmissionReport() {
                     </th>
                     <th
                       className="sorting"
-                      tabIndex="0"
+                      tabindex="0"
                       aria-controls="DataTables_Table_0"
-                      rowSpan="1"
-                      colSpan="1"
+                      rowspan="1"
+                      colspan="1"
                       aria-label="photo: activate to sort column ascending"
                       style={{ width: "42.6667px" }}
                     >
@@ -87,10 +91,10 @@ function AdmissionReport() {
 
                     <th
                       className="sorting"
-                      tabIndex="0"
+                      tabindex="0"
                       aria-controls="DataTables_Table_0"
-                      rowSpan="1"
-                      colSpan="1"
+                      rowspan="1"
+                      colspan="1"
                       aria-label="Name: activate to sort column ascending"
                       style={{ width: "81.3333px" }}
                     >
@@ -98,10 +102,10 @@ function AdmissionReport() {
                     </th>
                     <th
                       className="sorting"
-                      tabIndex="0"
+                      tabindex="0"
                       aria-controls="DataTables_Table_0"
-                      rowSpan="1"
-                      colSpan="1"
+                      rowspan="1"
+                      colspan="1"
                       aria-label="Gender: activate to sort column ascending"
                       style={{ width: "52px" }}
                     >
@@ -109,10 +113,10 @@ function AdmissionReport() {
                     </th>
                     <th
                       className="sorting"
-                      tabIndex="0"
+                      tabindex="0"
                       aria-controls="DataTables_Table_0"
-                      rowSpan="1"
-                      colSpan="1"
+                      rowspan="1"
+                      colspan="1"
                       aria-label="className: activate to sort column ascending"
                       style={{ width: "40px" }}
                     >
@@ -120,10 +124,10 @@ function AdmissionReport() {
                     </th>
                     <th
                       className="sorting"
-                      tabIndex="0"
+                      tabindex="0"
                       aria-controls="DataTables_Table_0"
-                      rowSpan="1"
-                      colSpan="1"
+                      rowspan="1"
+                      colspan="1"
                       aria-label="Section: activate to sort column ascending"
                       style={{ width: "54.6667px" }}
                     >
@@ -131,10 +135,10 @@ function AdmissionReport() {
                     </th>
                     <th
                       className="sorting"
-                      tabIndex="0"
+                      tabindex="0"
                       aria-controls="DataTables_Table_0"
-                      rowSpan="1"
-                      colSpan="1"
+                      rowspan="1"
+                      colspan="1"
                       aria-label="Parents: activate to sort column ascending"
                       style={{ width: "96px" }}
                     >
@@ -142,10 +146,10 @@ function AdmissionReport() {
                     </th>
                     <th
                       className="sorting"
-                      tabIndex="0"
+                      tabindex="0"
                       aria-controls="DataTables_Table_0"
-                      rowSpan="1"
-                      colSpan="1"
+                      rowspan="1"
+                      colspan="1"
                       aria-label="Address: activate to sort column ascending"
                       style={{ width: "134px" }}
                     >
@@ -153,10 +157,10 @@ function AdmissionReport() {
                     </th>
                     <th
                       className="sorting"
-                      tabIndex="0"
+                      tabindex="0"
                       aria-controls="DataTables_Table_0"
-                      rowSpan="1"
-                      colSpan="1"
+                      rowspan="1"
+                      colspan="1"
                       aria-label="Date Of Birth: activate to sort column ascending"
                       style={{ width: "92.6667px" }}
                     >
@@ -164,10 +168,10 @@ function AdmissionReport() {
                     </th>
                     <th
                       className="sorting"
-                      tabIndex="0"
+                      tabindex="0"
                       aria-controls="DataTables_Table_0"
-                      rowSpan="1"
-                      colSpan="1"
+                      rowspan="1"
+                      colspan="1"
                       aria-label="Phone: activate to sort column ascending"
                       style={{ width: "100.667px" }}
                     >
@@ -175,10 +179,10 @@ function AdmissionReport() {
                     </th>
                     <th
                       className="sorting"
-                      tabIndex="0"
+                      tabindex="0"
                       aria-controls="DataTables_Table_0"
-                      rowSpan="1"
-                      colSpan="1"
+                      rowspan="1"
+                      colspan="1"
                       aria-label="E-mail: activate to sort column ascending"
                       style={{ width: "166.667px" }}
                     >
@@ -186,30 +190,30 @@ function AdmissionReport() {
                     </th>
                     <th
                       className="sorting_disabled"
-                      rowSpan="1"
-                      colSpan="1"
+                      rowspan="1"
+                      colspan="1"
                       aria-label=""
                       style={{ width: "48px" }}
                     ></th>
                   </tr>
                 </thead>
-
                 <tbody className="text-center">
-                  <tr role="row" className="odd ">
-                    <td>{formValues.admissionId}</td>
-                    <td className="text-center">
-                      <img src={formValues.photo} alt="" />
-                    </td>
-                    <td>{formValues.name}</td>
-                    <td>{formValues.gender}</td>
-                    <td>{formValues.class}</td>
-                    <td>{formValues.section}</td>
-                    <td> {formValues.parents}</td>
-                    <td> {formValues.address}</td>
-                    <td>{formValues.dob}</td>
-                    <td>{formValues.phoneNo}</td>
-                    <td>{formValues.doj}</td>
-                  </tr>
+                  {data.map((item) => (
+                    <tr key={item.STUDENT_ID} role="row" className="odd ">
+                      <td>{item.STUDENT_ID}</td>
+                      {/* <td style={styleback}>{item.stich_name}</td> */}
+                      <td>Photo Ni hai</td>
+                      <td>{item.STD_NAME}</td>
+                      <td>{item.STD_GENDER}</td>
+                      <td>{item.STD_CLASS}</td>
+                      <td>{item.STD_SECTION}</td>
+                      <td>{item.STD_PAR_GARD}</td>
+                      <td>{item.STD_ADDRESS}</td>
+                      <td>{item.STD_DOB}</td>
+                      <td>{item.STD_PHONE}</td>
+                      <td>{item.STD_DOJ}</td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>

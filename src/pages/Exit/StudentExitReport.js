@@ -2,6 +2,15 @@ import React from "react";
 import "../Student/AdmissionReport.css";
 
 function StudentExitReport() {
+  const formValues = {
+    studentId: "101",
+    name: "Mohammed",
+    doj: "20/05/2018",
+    doe: "01/05/2018",
+    cci: "Positve",
+    resForLeaving:"Positve Positve Positve"
+  };
+
   return (
     <>
       <div className="card height-auto">
@@ -12,18 +21,32 @@ function StudentExitReport() {
             </div>
           </div>
           <form className="mg-b-20">
-    <div className="row gutters-8">
-        <div className="col-lg-4  col-12 form-group">
-            <input type="text" placeholder="Search by Student ID ..." className="form-control"/>
-        </div>
-        <div className="col-lg-4 col-12 form-group">
-            <input type="text" placeholder="Search by Studend Name ..." className="form-control"/>
-        </div>
-        <div className="col-lg-2 col-12 form-group">
-            <button type="submit" className="fw-btn-fill btn-gradient-yellow" style={{ width:"100px"}}>SEARCH</button>
-        </div>
-    </div>
-</form>
+            <div className="row gutters-8">
+              <div className="col-lg-4  col-12 form-group">
+                <input
+                  type="text"
+                  placeholder="Search by Student ID ..."
+                  className="form-control"
+                />
+              </div>
+              <div className="col-lg-4 col-12 form-group">
+                <input
+                  type="text"
+                  placeholder="Search by Studend Name ..."
+                  className="form-control"
+                />
+              </div>
+              <div className="col-lg-2 col-12 form-group">
+                <button
+                  type="submit"
+                  className="fw-btn-fill btn-gradient-yellow"
+                  style={{ width: "100px" }}
+                >
+                  SEARCH
+                </button>
+              </div>
+            </div>
+          </form>
           <div className="table-responsive">
             <div
               id="DataTables_Table_0_wrapper"
@@ -107,39 +130,12 @@ function StudentExitReport() {
                 </thead>
                 <tbody className="text-center">
                   <tr role="row" className="odd ">
-                    <td>001</td>
-                    <td>syed tousif</td>
-                    <td>20/05/2018</td>
-                    <td>20/05/2021</td>
-                    <td>Positve</td>
-                    <td>Transfer</td>
-                  </tr>
-
-                  <tr role="row" className="odd ">
-                    <td>001</td>
-                    <td>syed tousif</td>
-                    <td>20/05/2018</td>
-                    <td>20/05/2021</td>
-                    <td>Positve</td>
-                    <td>Transfer</td>
-                  </tr>
-
-                  <tr role="row" className="odd ">
-                    <td>001</td>
-                    <td>syed tousif</td>
-                    <td>20/05/2018</td>
-                    <td>20/05/2021</td>
-                    <td>Positve</td>
-                    <td>Transfer</td>
-                  </tr>
-
-                  <tr role="row" className="odd ">
-                    <td>001</td>
-                    <td>syed tousif</td>
-                    <td>20/05/2018</td>
-                    <td>20/05/2021</td>
-                    <td>Positve</td>
-                    <td>Transfer</td>
+                    <td>{formValues.studentId}</td>
+                    <td>{formValues.name}</td>
+                    <td>{formValues.doj}</td>
+                    <td>{formValues.doe}</td>
+                    <td>{formValues.cci}</td>
+                    <td>{formValues.resForLeaving}</td>
                   </tr>
                 </tbody>
               </table>

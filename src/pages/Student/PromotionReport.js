@@ -1,25 +1,33 @@
-import React, { useState } from "react";
+/* eslint-disable array-callback-return */
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-const-assign */
+import React, { useEffect, useState } from "react";
 import "./PromotionReport.css";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import DatePicker from "react-datepicker";
-
-import TextError from "../../TextError";
-import "react-datepicker/dist/react-datepicker.css";
 
 function PromotionReport() {
+  const [std, setStd] = useState("");
+  const [sec, setSec] = useState("");
 
+  const [formValues, setFormValues] = useState([]);
 
-  const formValues = [
-    {studentId: "B101",
-    name: "Mohammed",
-    class: 5},
-    {studentId: "B102",
-    name: "Mohammed",
-    class: 5}
-  ];
+  useEffect(() => {
+    let formValues = [
+      { studentId: "B101", name: "Mohammed", CurClass: "5" },
+      { studentId: "B102", name: "Shoaib", CurClass: "6" },
+      { studentId: "B103", name: "Mazhar", CurClass: "3" },
+      { studentId: "B104", name: "Shan", CurClass: "10" },
+    ];
+    formValues.map((d) => {
+      return {
+        select: false,
+        studentId: d.studentId,
+        name: d.name,
+        CurClass: d.CurClass,
+      };
+    });
+    setFormValues(formValues);
+  }, []);
 
-  
   const optionClass = [
     { key: "Select Class", value: "" },
     { key: "1", value: "1" },
@@ -43,22 +51,25 @@ function PromotionReport() {
     { key: "E", value: "E" },
   ];
 
-  const initialValues = {
-    class: "",
-    section: "",
+  const onSearch = () => {
+    alert("im on");
+    console.log(std);
+    console.log(sec);
   };
 
-  const savedValues = {
-    class: "",
-    section: "",
+  const onsubmitHandler = () => {
+    alert("Submited Array");
+    console.log(Vresult);
+    setVresult([]);
+    formValues.map((d)=>{
+      d.select=false;
+    })
   };
-  const userValidation = Yup.object({
-    class: Yup.string().required("*This Field is Mandatory"),
-    section: Yup.string().required("*This Field is Mandatory"),
-  });
 
-  const onSubmit = (value) => {
-    console.log("Submitted Data : ", value + 1);
+  const [Vresult, setVresult] = useState([""]);
+
+  const updateRecordsAfterFilter = (val) => {
+    setVresult((Vresult) => [...Vresult, val]);
   };
   return (
     <>
@@ -69,66 +80,67 @@ function PromotionReport() {
               <h3>Promotion Report</h3>
             </div>{" "}
           </div>
-          <Formik
-            initialValues={initialValues}
-            validationSchema={userValidation}
-          >
-            <Form className="new-added-form-1">
-              <div className="row">
-                <div className="col-xl-3 col-lg-6 col-12 form-group">
-                  <label htmlFor="promotion">Promotion From Standards</label>
-                  <Field
-                    as="select"
-                    id="class"
-                    name="class"
-                    className="form-control"
-                  >
-                    {optionClass.map((optionClass) => {
-                      return (
-                        <option key={optionClass.key} value={optionClass.value}>
-                          {optionClass.key}
-                        </option>
-                      );
-                    })}
-                  </Field>
-                  <ErrorMessage name="class" component={TextError} />
-                </div>
 
-                <div className="col-xl-3 col-lg-6 col-12 form-group">
-                  <label>Promotion From Section</label>
-                  <Field
-                    as="select"
-                    id="section"
-                    name="section"
-                    className="form-control"
-                  >
-                    {optionSection.map((optionSection) => {
-                      return (
-                        <option
-                          key={optionSection.key}
-                          value={optionSection.value}
-                        >
-                          {optionSection.key}
-                        </option>
-                      );
-                    })}
-                  </Field>
-                  <ErrorMessage name="section" component={TextError} />
-                </div>
-
-                <div className="col-1-xxxl col-xl-2 col-lg-3 col-12 form-group-1">
-                  <button
-                    type="submit"
-                    className="fw-btn-fill btn-gradient-yellow"
-                    style={{ padding: "06px", marginTop: "32px" }}
-                  >
-                    {" "}
-                    SEARCH
-                  </button>
-                </div>
+          <form className="new-added-form-1">
+            <div className="row">
+              <div className="col-xl-3 col-lg-6 col-12 form-group">
+                <label htmlFor="promotion">Promotion From Standards</label>
+                <select
+                  as="select"
+                  id="std"
+                  name="std"
+                  className="form-control"
+                  onChange={(e) => {
+                    setStd(e.target.value);
+                  }}
+                >
+                  {optionClass.map((optionClass) => {
+                    return (
+                      <option key={optionClass.key} value={optionClass.value}>
+                        {optionClass.key}
+                      </option>
+                    );
+                  })}
+                </select>
               </div>
-            </Form>
-          </Formik>
+
+              <div className="col-xl-3 col-lg-6 col-12 form-group">
+                <label>Promotion From Section</label>
+                <select
+                  as="select"
+                  id="sec"
+                  name="sec"
+                  className="form-control"
+                  onChange={(e) => {
+                    setSec(e.target.value);
+                  }}
+                >
+                  {optionSection.map((optionSection) => {
+                    return (
+                      <option
+                        key={optionSection.key}
+                        value={optionSection.value}
+                      >
+                        {optionSection.key}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+
+              <div className="col-1-xxxl col-xl-2 col-lg-3 col-12 form-group-1">
+                <button
+                  type="button"
+                  className="fw-btn-fill btn-gradient-yellow"
+                  style={{ padding: "06px", marginTop: "32px" }}
+                  onClick={onSearch}
+                >
+                  {" "}
+                  SEARCH
+                </button>
+              </div>
+            </div>
+          </form>
 
           <div className="table-responsive">
             <div
@@ -153,6 +165,15 @@ function PromotionReport() {
                         <input
                           type="checkbox"
                           className="form-check-input checkAll"
+                          onChange={(e) => {
+                            let checked = e.target.checked;
+                            setFormValues(
+                              formValues.map((d) => {
+                                d.select = checked;
+                                return d;
+                              })
+                            );
+                          }}
                         />
                         <label className="form-check-label">Sudent ID</label>
                       </div>
@@ -182,19 +203,44 @@ function PromotionReport() {
                     </th>
                   </tr>
                 </thead>
+
                 <tbody>
-                  <tr role="row" className="odd">
-                    <td className="sorting_1">
-                      <div className="form-check">
-                        <input type="checkbox" className="form-check-input" />
-                        <label className="form-check-label">
-                          {formValues.studentId}
-                        </label>
-                      </div>
-                    </td>
-                    <td>{formValues.name}</td>
-                    <td>{formValues.class}</td>
-                  </tr>
+                  {formValues.map((item, i) => (
+                    <tr role="row" className="odd" key={i}>
+                      <td className="sorting_1">
+                        <div className="form-check">
+                          <input
+                            type="checkbox"
+                            className="form-check-input"
+                            id="select"
+                            name="select"
+                            checked={item.select}
+                            onChange={(event) => {
+                              let checked = event.target.checked;
+                              setFormValues(
+                                formValues.map((data) => {
+                                  if (item.studentId === data.studentId) {
+                                    data.select = checked;
+                                    if (data.select === true) {
+                                      let value = data.studentId;
+                                      let x = value.toString();
+                                      updateRecordsAfterFilter(x);
+                                    }
+                                  }
+                                  return data;
+                                })
+                              );
+                            }}
+                          />
+                          <label className="form-check-label">
+                            {item.studentId}
+                          </label>
+                        </div>
+                      </td>
+                      <td>{item.name}</td>
+                      <td>{item.CurClass}</td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
@@ -203,7 +249,7 @@ function PromotionReport() {
             <button
               type="submit"
               className="btn-fill-lg1 btn-gradient-yellow1 btn-hover-bluedark"
-              onSubmit={onSubmit}
+              onClick={onsubmitHandler}
             >
               Promote
             </button>
@@ -213,5 +259,4 @@ function PromotionReport() {
     </>
   );
 }
-
 export default PromotionReport;

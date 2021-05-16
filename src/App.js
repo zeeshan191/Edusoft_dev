@@ -3,7 +3,7 @@ import Sidebar from './components/Sidebar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import TadmissionForm from './pages/Teachers/TadmissionForm';
 import TadmissionReport from './pages/Teachers/TadmissionReport';
-// import ResponsiblityForm from './pages/Teachers/ResponsiblityForm';
+import ResponsiblityForm from './pages/Teachers/ResponsiblityForm';
 import ResponsiblityReport from './pages/Teachers/ResponsiblityReport';
 import Notice from './pages/Notice/Notice';
 import Message from './pages/Notice/Message';
@@ -33,6 +33,7 @@ function App() {
         <Route path='/Teachers/TAdmissionForm' exact component={TadmissionForm} /> 
         <Route path='/Teachers/TadmissionReport' exact component={TadmissionReport} /> 
         <Route path='/Teachers/ResponsiblityReport' exact component={ResponsiblityReport} />
+        <Route path='/Teachers/ResponsiblityForm' exact component={ResponsiblityForm} />
         <Route path='/Notice/Notice' exact component={Notice} />
         <Route path='/Notice/Message' exact component={Message} />
         <Route path='/Result/ResultForm' exact component={ResultForm} />

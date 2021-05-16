@@ -2,6 +2,13 @@ import React from "react";
 import "../Student/AdmissionReport.css";
 
 function TeachersExitReport() {
+  const formValues = {
+    tchId: "101",
+    name: "Mohammed",
+    doj: "490",
+    doe: "85%",
+    reson: "SOMETING SOMETHING",
+  };
   return (
     <>
       <div className="card height-auto">
@@ -96,35 +103,11 @@ function TeachersExitReport() {
                 </thead>
                 <tbody className="text-center">
                   <tr role="row" className="odd ">
-                    <td>001</td>
-                    <td>syed tousif</td>
-                    <td>20/05/2018</td>
-                    <td>20/05/2021</td>
-                    <td>Change of Job</td>
-                  </tr>
-
-                  <tr role="row" className="odd ">
-                    <td>001</td>
-                    <td>syed tousif</td>
-                    <td>20/05/2018</td>
-                    <td>20/05/2021</td>
-                    <td>Change of Job</td>
-                  </tr>
-
-                  <tr role="row" className="odd ">
-                    <td>001</td>
-                    <td>syed tousif</td>
-                    <td>20/05/2018</td>
-                    <td>20/05/2021</td>
-                    <td>Change of Job</td>
-                  </tr>
-
-                  <tr role="row" className="odd ">
-                    <td>001</td>
-                    <td>syed tousif</td>
-                    <td>20/05/2018</td>
-                    <td>20/05/2021</td>
-                    <td>Change of Job</td>
+                    <td>{formValues.tchId}</td>
+                    <td>{formValues.name}</td>
+                    <td>{formValues.doj}</td>
+                    <td>{formValues.doe}</td>
+                    <td>{formValues.reson}</td>
                   </tr>
                 </tbody>
               </table>
